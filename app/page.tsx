@@ -29,6 +29,10 @@ export default function LoginIn() {
             email: data.email,
             password: data.password
           })
+          if(response.data.success) {
+            localStorage.setItem("token", response.data.message.token)
+            router.replace("/wall")
+          }
           console.log(response)
         })
       }>
